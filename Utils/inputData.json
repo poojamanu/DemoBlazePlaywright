@@ -3,8 +3,24 @@
         "username": "testrider",
         "password": "123456"
     },
-    "invalidLogin": {
+    "invalidPwd": {
         "username": "testrider",
         "password": "123"
+    },
+    "invalidUname": {
+        "username": "b305",
+        "password": "123"
+    },
+    "invalidUnamePwd": {
+        "username": "b305",
+        "password": "!@#4"
+    },
+    "customerDetails":{
+        "name":"Alex",
+        "country":"India",
+        "city":"Mumbai",
+        "card":"909809812",
+        "month":"september",
+        "year":"2030"
     }
 }

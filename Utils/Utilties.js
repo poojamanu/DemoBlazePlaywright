@@ -1,21 +1,28 @@
-import {expect} from "@playwright/test"
+import { expect } from "@playwright/test"
 
-export class Utilities{
+export class Utilities {
 
-    constructor(page){
-        this.page=page
+    constructor(page) {
+        this.page = page
     }
-    handleAlertAndVerifyText(expectedMsg){
-        this.page.on("dialog",async dialog=>{
-            let msg=dialog.message()
-            console.log("Alert message",msg)
-            expect(msg).toBe(expectedMsg)
-
+    handleAlert() {
+        this.page.once("dialog", async dialog => {
+            console.log("Alert message:", dialog.message())
             await dialog.accept()
         })
     }
 
-    generateUniqueUsername(){
-        return "testrider"+Date.now()
+    handleAlertAsPromise() {
+        return new Promise(resolve => {
+            this.page.once("dialog", async dialog => {
+                const message = dialog.message()
+                await dialog.accept()
+                resolve(message)
+            })
+        })
+    }
+
+    generateUniqueUsername() {
+        return "testrider" + Date.now()
     }
 }
