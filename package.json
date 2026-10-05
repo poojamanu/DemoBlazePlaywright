@@ -2,13 +2,22 @@
   "name": "demoblaze",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test":"playwright test",
+    "test-headed":"playwright test --headed",
+    "report":"playwright show-report",
+    "chromeProject": "npx playwright test --project=ChromeProject",
+    "firefoxProject": "npx playwright test --project=firefoxProject",
+    "webkitProject": "npx playwright test --project=webkitProject",
+    "allure-report":"allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.3"
+    "@types/node": "^26.6.3",
+    "allure-playwright": "^3.13.0"
   }
 }

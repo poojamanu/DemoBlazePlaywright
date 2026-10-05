@@ -3,26 +3,11 @@ import data from "../Utils/inputData.json"
 export class HomePage {
     constructor(page) {
         this.page = page
-        this.utility = new Utilities(this.page)
-        this.signUp = page.locator("#signin2")
-        this.login = page.locator("#login2")
+        this.utility = new Utilities(this.page)      
+    
         this.home = page.getByRole("link", { name: 'Home' })
         this.cart = page.locator("#cartur")
-        this.logoutButton=page.locator("#logout2")
-
-        /* --signup locators -- */
-
-        this.username = page.locator("#sign-username")
-        this.password = page.locator("#sign-password")
-        this.signupButton = page.getByRole("button", { name: "Sign up" })
-        this.signupCloseButton = page.locator("//div[@id='signInModal']//button[@class='btn btn-secondary']")
-
-        /* --login locators -- */
-
-        this.loginUsername = page.locator("#loginusername")
-        this.loginPassword = page.locator("#loginpassword")
-        this.loginButton = page.getByRole("button", { name: "Log in" })
-        this.welcomeUser = page.locator("#nameofuser")
+        
 
         /*--product locator --*/
         this.product = page.getByRole("link", { name: "Samsung galaxy s6" })
@@ -35,26 +20,7 @@ export class HomePage {
         await this.page.goto("/")
     }
 
-    async SignUp() {
-        const username = this.utility.generateUniqueUsername()
-        await this.signUp.click()
-        await this.username.fill(username)
-        await this.password.fill(data.validLogin.password)
-        const alertPromise = this.utility.handleAlertAsPromise()
-        await this.signupButton.click()
-        const alertMsg = await alertPromise
-        return {
-            username,
-            alertMsg
-        }
-
-    }
-    async SignupClose() {
-        await this.signUp.click()
-        await this.username.fill(data.validLogin.username)
-        await this.password.fill(data.validLogin.password)
-        await this.signupCloseButton.click()
-    }
+   
 
     /*  
     given as fixture
@@ -66,45 +32,7 @@ export class HomePage {
   
       }*/
 
-    async LoginWithInValidPassword() {
-
-        await this.login.click()
-        await this.loginUsername.fill(data.invalidPwd.username)
-        await this.loginPassword.fill(data.invalidPwd.password)
-        const alertPromise = this.utility.handleAlertAsPromise()
-        await this.loginButton.click()
-        const alertMsg = await alertPromise
-        return {
-            alertMsg
-        }
-
-    }
-
-    async LoginWithInvalidUsername() {
-        await this.login.click()
-        await this.loginUsername.fill(data.invalidUname.username)
-        await this.loginPassword.fill(data.invalidUname.password)
-        //utility.handleAlertAndVerifyText("User does not exist.")
-        const alertPromise = this.utility.handleAlertAsPromise()
-        await this.loginButton.click()
-        const alertMsg = await alertPromise
-        return {
-            alertMsg
-        }
-    }
-
-    async LoginWithInvalidUsernameAndPassword() {
-        await this.login.click()
-        await this.loginUsername.fill(data.invalidUnamePwd.username)
-        await this.loginPassword.fill(data.invalidUnamePwd.password)
-        const alertPromise = this.utility.handleAlertAsPromise()
-        await this.loginButton.click()
-        const alertMsg = await alertPromise
-        return {
-            alertMsg
-        }
-    }
-
+    
     async chooseProduct() {
         await this.product.click()
 
@@ -146,8 +74,6 @@ export class HomePage {
 
     }
 
-    async logout(){
-        await this.logoutButton.click()
-    }
+   
 
 }

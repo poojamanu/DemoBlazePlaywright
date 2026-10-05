@@ -20,13 +20,19 @@ export default defineConfig({
   },
   use: {
     baseURL: "https://www.demoblaze.com",
+    headless: true,
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
+    trace: "retain-on-failure"
   },
   retries: 1,
   /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-
-  reporter: 'html',
+ 
+  //reporter: 'html',
+  reporter:[
+    ["allure-playwright"]
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
 

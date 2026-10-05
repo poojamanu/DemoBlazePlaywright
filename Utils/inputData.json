@@ -15,12 +15,28 @@
         "username": "b305",
         "password": "!@#4"
     },
-    "customerDetails":{
+    "customer1Details":{
+        "username": "demorider2",
+        "password": "123456",
         "name":"Alex",
         "country":"India",
         "city":"Mumbai",
         "card":"909809812",
         "month":"september",
-        "year":"2030"
+        "year":"2030",
+        "category":"Phones",
+        "product":"Nexus 6"
+    },
+     "customer2Details":{
+        "username": "demorider1",
+        "password": "12345",
+        "name":"Cathy",
+        "country":"India",
+        "city":"Bengaluru",
+        "card":"876876393",
+        "month":"jan",
+        "year":"2030",
+        "category":"Monitors",
+        "product":"Apple monitor 24"
     }
 }
