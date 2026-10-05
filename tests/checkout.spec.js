@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test"
 import { PageObjectManager } from "../Pages/PageObjectManager"
-
+import data from "../Utils/inputData.json"
 import { customLocators } from "../fixtures/loginFixture"
 
 customLocators("TC008:Login and select product from Phone category and complete purchase",async({page,loginFunction})=>{

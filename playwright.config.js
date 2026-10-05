@@ -42,7 +42,7 @@ export default defineConfig({
       name: 'ChromeProject',
       use: {
 
-        headless: false,
+        headless: true,
         screenshot: 'only-on-failure',
         video: "retain-on-failure",
 
